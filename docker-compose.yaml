@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+  mongo:
+    image: bitnami/mongodb
+    container_name: mongo-v8
+    ports:
+      - 27017:27017
+    networks:
+      - v8-network
+    volumes:
+      - db:/bitnami/mongodb
+  # api:
+  #   build:
+  #     context: .
+  #   container_name: api-v8
+  #   ports:
+  #     - 3001:3000
+  #   depends_on:
+  #     - mongo
+  #   networks:
+  #     - v8-network
+  #   env_file:
+  #     - .env.docker
+
+networks:
+  v8-network:
+    name: v8-network
+    external: false
+    driver: bridge
+
+volumes:
+  db:

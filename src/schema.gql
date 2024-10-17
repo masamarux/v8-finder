@@ -1,0 +1,18 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type VehicleTypeDto {
+  typeId: ID!
+  typeName: String!
+}
+
+type VehicleDto {
+  makeId: ID!
+  makeName: String!
+  vehicleTypes: [VehicleTypeDto!]!
+}
+
+type Query {
+  getVehicle(id: ID!): VehicleDto!
+}

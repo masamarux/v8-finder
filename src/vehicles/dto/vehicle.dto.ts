@@ -1,4 +1,5 @@
-import { Field, ObjectType, ID } from '@nestjs/graphql';
+// vehicle.dto.ts
+import { ObjectType, Field, ID } from '@nestjs/graphql';
 import { VehicleTypeDto } from './vehicle-type.dto';
 
 @ObjectType()
