@@ -1,6 +1,5 @@
 import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
-import { Document, Types } from 'mongoose';
-import { VehicleType } from './vehicle-type.schema';
+import { Document } from 'mongoose';
 
 @Schema()
 export class VehicleMake extends Document {
@@ -11,10 +10,24 @@ export class VehicleMake extends Document {
   makeName: string;
 
   @Prop({
-    type: [{ type: Types.ObjectId, ref: VehicleType.name }],
-    required: true,
+    type: [
+      {
+        typeId: String,
+        typeName: String,
+      },
+    ],
+    required: false,
   })
-  vehicleTypes: VehicleType[];
+  vehicleTypes: {
+    typeId: string;
+    typeName: string;
+  }[];
+
+  @Prop({ default: false })
+  wasScraped: boolean;
+
+  @Prop({ default: Date.now })
+  createdAt: Date;
 }
 
 export const VehicleMakeSchema = SchemaFactory.createForClass(VehicleMake);

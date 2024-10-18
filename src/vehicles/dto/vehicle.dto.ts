@@ -10,6 +10,9 @@ export class VehicleDto {
   @Field()
   makeName: string;
 
-  @Field(() => [VehicleTypeDto])
+  @Field(() => [VehicleTypeDto], { nullable: true })
   vehicleTypes: VehicleTypeDto[];
+
+  @Field({ defaultValue: false })
+  wasScraped: boolean;
 }

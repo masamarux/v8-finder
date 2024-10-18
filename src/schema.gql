@@ -10,7 +10,8 @@ type VehicleTypeDto {
 type VehicleDto {
   makeId: ID!
   makeName: String!
-  vehicleTypes: [VehicleTypeDto!]!
+  vehicleTypes: [VehicleTypeDto!]
+  wasScraped: Boolean!
 }
 
 type Query {
